@@ -15,12 +15,12 @@
 		flex-direction: row;
 	}
 
-	&__link {
+	&__link, a {
 		color: $nav-link-color;
 		text-transform: uppercase;
 	}
 
-	&__link:hover {
+	&__link:hover, a:hover {
 		color: $nav-link-active-color;
 	}
 

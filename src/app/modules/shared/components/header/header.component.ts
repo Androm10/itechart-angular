@@ -12,6 +12,7 @@ export class HeaderComponent {
 	constructor(private router: Router) {}
 
 	shopDropdownOptions: DropdownOption[] = [
+		{label: 'DEV', value: '/dev'},
 		{label: 'home', value: '/index'},
 		{label: 'wishlist', value: '/user/wishlist'},
 		{label: 'points shop', value: 'pointsshop'},

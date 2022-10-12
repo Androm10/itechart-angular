@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DevPageComponent } from './modules/dev/dev-page.component';
 import { HomePageComponent } from './modules/home-page/components/home-page/home-page.component';
 import { PointsShopPageComponent } from './modules/pointsshop-page/components/pointsshop-page/pointsshop-page.component';
 
@@ -17,10 +18,10 @@ const routes: Routes = [
 		path: 'pointsshop',
 		component: PointsShopPageComponent
 	},
-	// {
-	// 	path: '**',
-	// 	redirectTo: 'index'
-	// }
+	{
+		path: 'dev',
+		component: DevPageComponent
+	}
 ];
 
 @NgModule({

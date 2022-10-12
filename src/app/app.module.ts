@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DevPageComponent } from './modules/dev/dev-page.component';
 import { HomePageModule } from './modules/home-page/home-page.module';
 import { PointsShopPageModule } from './modules/pointsshop-page/pointsshop-page.module';
 import { SharedModule } from './modules/shared/shared.module';
@@ -10,6 +11,7 @@ import { SharedModule } from './modules/shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
+	DevPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,26 +1,33 @@
-@import '../../../../../scss/constants.scss';
-@import '../../../../../scss/mixins.scss';
+@import '/src/scss/constants.scss';
+@import '/src/scss/mixins.scss';
+
+//TODO: make hamburger menu
 
 .header {
-	@include font($base-font, 600, calc( (100vw - 50rem)/45 + 1rem));
+	font-size: $header-size;
+	font-weight: 600;
 	background: linear-gradient($base-color, $second-color);
 	padding: 10px $base-padding;
 	display: flex;
 	align-items: center;
 
 	&__nav {
-		justify-content: space-evenly;
-		width: 79%;
 		display: flex;
+		justify-content: flex-start;
 		flex-direction: row;
+		flex-grow: 1;
+		margin-left: 30px;
+		gap: 30px;
 	}
 
-	&__link, a {
+	&__link,
+	a {
 		color: $nav-link-color;
 		text-transform: uppercase;
 	}
 
-	&__link:hover, a:hover {
+	&__link:hover,
+	a:hover {
 		color: $nav-link-active-color;
 	}
 
@@ -31,7 +38,7 @@
 	}
 
 	&__global-actions {
-		@include font($base-font, 400, calc( (100vw - 60rem)/90 + 1rem));
+		font-size: calc($header-size / 2);
 		margin-bottom: 40px;
 		white-space: nowrap;
 	}
@@ -46,11 +53,4 @@
 			opacity: 1;
 		}
 	}
-
-
-
 }
-
-
-
-

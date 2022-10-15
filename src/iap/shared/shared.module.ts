@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { DropdownComponent, HeaderComponent } from './components';
+import { DropdownComponent } from './components';
 
 @NgModule({
-	declarations: [HeaderComponent, DropdownComponent],
+	declarations: [DropdownComponent],
 	imports: [CommonModule, RouterModule],
-	exports: [HeaderComponent, DropdownComponent],
+	exports: [CommonModule, DropdownComponent],
 })
 export class SharedModule {}

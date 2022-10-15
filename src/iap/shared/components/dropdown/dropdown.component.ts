@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DropdownOption } from '@shared/models/dropdown.models';
 
 @Component({
 	selector: 'iap-dropdown',
@@ -15,9 +16,4 @@ export class DropdownComponent {
 	selectOption(value: string) {
 		this.selectEvent.emit(value);
 	}
-}
-
-export interface DropdownOption {
-	label: string;
-	value: string;
 }

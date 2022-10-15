@@ -8,4 +8,4 @@ import { PointsShopPageComponent } from './components/pointsshop-page/pointsshop
 	imports: [CommonModule],
 	exports: [PointsShopPageComponent],
 })
-export class PointsShopPageModule {}
+export class PointsShopModule {}

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { DropdownOption } from '../dropdown/dropdown.component';
+import { DropdownOption } from '@shared/models/dropdown.models';
 
 @Component({
 	selector: 'iap-header',

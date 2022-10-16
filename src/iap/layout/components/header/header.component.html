@@ -1,0 +1,64 @@
+<div class="header">
+	<div class="header__logo"></div>
+	<nav class="header__nav">
+		<div
+			class="header__link"
+			(mouseover)="onMouseOver(1)"
+			(mouseout)="onMouseOut()"
+		>
+			<a
+				routerLink="/index"
+				routerLinkActive="active"
+				>Shop</a
+			>
+
+			<iap-dropdown
+				[values]="shopDropdownOptions"
+				class="header__dropdown"
+				[ngClass]="{ header__dropdown_active: activeDropdown === 1 }"
+				(selectEvent)="onSelectOption($event)"
+			></iap-dropdown>
+		</div>
+		<div
+			class="header__link"
+			(mouseover)="onMouseOver(2)"
+			(mouseout)="onMouseOut()"
+		>
+			<a
+				routerLink="/index"
+				routerLinkActive="active"
+				>Community</a
+			>
+
+			<iap-dropdown
+				[values]="communityDropdownOptions"
+				class="header__dropdown"
+				[ngClass]="{ header__dropdown_active: activeDropdown === 2 }"
+				(selectEvent)="onSelectOption($event)"
+			></iap-dropdown>
+		</div>
+		<a
+			class="header__link"
+			routerLink="/index"
+			routerLinkActive="active"
+			(mouseover)="onMouseOver(3)"
+			(mouseout)="onMouseOut()"
+			>About us</a
+		>
+		<a
+			class="header__link"
+			routerLink="/index"
+			routerLinkActive="active"
+			(mouseover)="onMouseOver(4)"
+			(mouseout)="onMouseOut()"
+			>Support</a
+		>
+	</nav>
+	<div class="header__global-actions">
+		<a
+			routerLink="/index"
+			routerLinkActive="active"
+			>sign up</a
+		>
+	</div>
+</div>

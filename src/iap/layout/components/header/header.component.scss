@@ -1,0 +1,56 @@
+@import '/src/scss/constants.scss';
+@import '/src/scss/mixins.scss';
+
+//TODO: make hamburger menu
+
+.header {
+	font-size: $header-size;
+	font-weight: 600;
+	background: linear-gradient($base-color, $second-color);
+	padding: 10px $base-padding;
+	display: flex;
+	align-items: center;
+
+	&__nav {
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: row;
+		flex-grow: 1;
+		margin-left: 30px;
+		gap: 30px;
+	}
+
+	&__link,
+	a {
+		color: $nav-link-color;
+		text-transform: uppercase;
+	}
+
+	&__link:hover,
+	a:hover {
+		color: $nav-link-active-color;
+	}
+
+	&__logo {
+		width: 120px;
+		height: 60px;
+		background-color: grey;
+	}
+
+	&__global-actions {
+		font-size: calc($header-size / 2);
+		margin-bottom: 40px;
+		white-space: nowrap;
+	}
+
+	&__dropdown {
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.2s ease, visibility 0s;
+
+		&_active {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}

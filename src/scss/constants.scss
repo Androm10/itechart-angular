@@ -1,0 +1,17 @@
+$base-padding: 10%;
+
+$text-size: 16px;
+$header-size: 24px;
+
+$base-color: #110c5c;
+$second-color: #5c0168;
+$nav-link-color: #d6d6d6;
+$nav-link-active-color: #fff;
+
+@font-face {
+	font-family: Vinslab;
+	src: url(../assets/fonts/VinSlabPro-Light_0.ttf);
+}
+
+$base-font: Vinslab;
+$second-font: 'Arial';

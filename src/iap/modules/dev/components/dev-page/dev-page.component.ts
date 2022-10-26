@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PreviewSlideComponent } from '@shared/components';
-
 import { Slide } from '@shared/models/carousel.models';
 import { Game } from '@shared/models/dto/game.model';
 

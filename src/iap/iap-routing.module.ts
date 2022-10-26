@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { shopPages } from '@shared/constants/pages';
+
 const routes: Routes = [
 	{
 		path: '',
 		pathMatch: 'full',
-		redirectTo: '/index',
+		redirectTo: shopPages.home.name,
 	},
 ];
 

@@ -1,29 +1,32 @@
-import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, AfterViewInit, ViewChild, ViewContainerRef } from '@angular/core';
+
 import { Slide, SlideComponent } from '@shared/models/carousel.models';
-import { SlideDirective } from '../../directives/slide.directive';
 
 @Component({
 	selector: 'iap-carousel',
 	templateUrl: './carousel.component.html',
 	styleUrls: ['./carousel.component.scss'],
 })
-export class CarouselComponent implements OnInit, OnDestroy {
-	@ViewChild(SlideDirective, { static: true }) slideHost!: SlideDirective;
+export class CarouselComponent implements AfterViewInit, OnDestroy {
+	@ViewChild('slideHost', { read: ViewContainerRef })
+	slideHostView!: ViewContainerRef;
 
 	@Input()
 	slides: Slide<any>[] = [];
 
 	currentSlideIndex = 0;
 
-	interval: NodeJS.Timeout | undefined;
+	interval: number | undefined;
 
-	ngOnInit(): void {
-		this.selectSlide(this.currentSlideIndex);
+	// TODO: ngOnChanges  (and ngAfterInit)
+	ngAfterViewInit(): void {
+		// TODO: Fix "changes after check" error by another method
+		window.setTimeout(() => this.selectSlide(this.currentSlideIndex), 0);
 		this.startSlideshow();
 	}
 
 	ngOnDestroy() {
-		clearInterval(this.interval);
+		window.clearInterval(this.interval);
 	}
 
 	onNextButtonClick() {
@@ -35,29 +38,35 @@ export class CarouselComponent implements OnInit, OnDestroy {
 	onPrevButtonClick() {
 		this.restartSlideshowTimer();
 
-		if (this.currentSlideIndex > 0) this.selectSlide(this.currentSlideIndex - 1);
-		else this.selectSlide(this.slides.length - 1);
+		if (this.currentSlideIndex > 0) {
+			this.selectSlide(this.currentSlideIndex - 1);
+		} else {
+			this.selectSlide(this.slides.length - 1);
+		}
 	}
 
 	selectSlide(number: number) {
 		this.currentSlideIndex = number % this.slides.length;
 		const slide = this.slides[this.currentSlideIndex];
 
-		const viewContainerRef = this.slideHost.viewContainerRef;
-		viewContainerRef.clear();
+		this.slideHostView.clear();
 
-		const componentRef = viewContainerRef.createComponent<SlideComponent<any>>(slide.component);
+		const componentRef = this.slideHostView.createComponent<SlideComponent<any>>(slide.component);
 		componentRef.instance.data = slide.data;
 	}
 
+	isCurrentSlideIndex(number: number) {
+		return number === this.currentSlideIndex;
+	}
+
 	private startSlideshow() {
-		this.interval = setInterval(() => {
-			this.selectSlide((this.currentSlideIndex + 1) % this.slides.length);
+		this.interval = window.setInterval(() => {
+			this.selectSlide(this.currentSlideIndex + 1);
 		}, 5000);
 	}
 
 	private restartSlideshowTimer() {
-		clearInterval(this.interval);
+		window.clearInterval(this.interval);
 		this.startSlideshow();
 	}
 }

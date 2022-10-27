@@ -1,33 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DropdownOption } from '@shared/models/dropdown.models';
+import { communityPagesArray, devPagesArray, shopPagesArray } from '@shared/constants/pages';
 
 @Component({
-	selector: 'iap-header',
+	selector: 'iap-layout-header',
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
-	shopDropdownOptions: DropdownOption[] = [
-		{ label: 'home', value: '/index' },
-		{ label: 'wishlist', value: '/user/wishlist' },
-		{ label: 'points shop', value: '/pointsshop' },
-		{ label: 'news', value: '/news' },
-		{ label: 'stats', value: '/stats' },
-	];
+export class LayoutHeaderComponent implements OnInit {
+	shopDropdownOptions: DropdownOption[] = [];
 
-	communityDropdownOptions: DropdownOption[] = [
-		{ label: 'home', value: '/community' },
-		{ label: 'discussions', value: '/community/discussions' },
-		{ label: 'market', value: '/community/market' },
-		{ label: 'workshop', value: '/community/workshop' },
-		{ label: 'broadcasts', value: '/community/broadcasts' },
-	];
+	communityDropdownOptions: DropdownOption[] = [];
 
 	activeDropdown: number = -1;
 
 	constructor(private router: Router) {}
+
+	ngOnInit(): void {
+		this.shopDropdownOptions = shopPagesArray.map((page) => ({
+			label: page.title,
+			value: page.absolutePath,
+		}));
+		this.communityDropdownOptions = communityPagesArray.map((page) => ({
+			label: page.title,
+			value: page.absolutePath,
+		}));
+
+		this.shopDropdownOptions.unshift(
+			...devPagesArray.map((page) => ({
+				label: page.title,
+				value: page.absolutePath,
+			})),
+		);
+	}
 
 	onMouseOver(number: number) {
 		this.changeActiveDropdown(number);

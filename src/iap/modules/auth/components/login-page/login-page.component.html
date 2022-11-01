@@ -1,0 +1,9 @@
+<div class="iap-login-page">
+	<h1 class="iap-login-page__header">LOGIN</h1>
+	<iap-login-form
+		class="iap-login-page__form"
+		(submitEvent)="onSubmit($event)"
+	>
+		<div class="iap-login-page__error">{{ errorStatus }}</div>
+	</iap-login-form>
+</div>

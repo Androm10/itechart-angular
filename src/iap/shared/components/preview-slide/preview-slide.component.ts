@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { SlideComponent } from '@shared/models/carousel.models';
-import { Game } from '@shared/models/dto/game.model';
+import { Game } from '@shared/models/entities/game.entity';
 
 @Component({
 	selector: 'iap-preview-slide',

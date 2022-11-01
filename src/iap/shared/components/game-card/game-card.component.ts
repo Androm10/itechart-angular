@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Game } from '@shared/models/dto/game.model';
+import { Game } from '@shared/models/entities/game.entity';
 
 @Component({
 	selector: 'iap-game-card',

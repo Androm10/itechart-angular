@@ -1,0 +1,21 @@
+@import '../constants.scss';
+
+//TODO: use regular classes maybe
+%base-input-field {
+	display: flex;
+	flex-direction: column;
+}
+
+%base-input-field__label {
+}
+
+%base-input-field__input {
+	padding: 8px 6px;
+	background-color: $input-background-color;
+	color: #fff;
+	border-radius: 0.2rem;
+
+	&:focus {
+		outline: 1px solid #fff;
+	}
+}

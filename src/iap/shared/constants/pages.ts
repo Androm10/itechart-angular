@@ -20,6 +20,12 @@ export const devPages = {
 	dev: new Page('DEV', 'dev', '/dev'),
 };
 
+export const authPages = {
+	signup: new Page('Sign Up', 'signup', '/signup'),
+	login: new Page('Login', 'login', '/login'),
+};
+
 export const shopPagesArray = Object.values(shopPages);
 export const communityPagesArray = Object.values(communityPages);
 export const devPagesArray = Object.values(devPages);
+export const autPagesArray = Object.values(authPages);

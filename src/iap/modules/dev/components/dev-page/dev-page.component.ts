@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PreviewSlideComponent } from '@shared/components';
 import { Slide } from '@shared/models/carousel.models';
-import { Game } from '@shared/models/dto/game.model';
+import { Game } from '@shared/models/entities/game.entity';
 
 @Component({
 	selector: 'iap-dev-page',

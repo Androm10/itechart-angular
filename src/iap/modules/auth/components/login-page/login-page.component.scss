@@ -1,0 +1,32 @@
+@import '/src/scss/constants';
+
+.iap-login-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+
+	&__form {
+		width: max(300px, 45vw);
+		padding: 10px;
+		border-radius: 0.5rem;
+		color: #fff;
+		background: linear-gradient($base-color, $second-color);
+	}
+
+	&__header {
+		width: max(300px, 45vw);
+		font-size: $header-size * 2;
+		font-weight: 600;
+		text-align: start;
+	}
+
+	&__error {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-transform: capitalize;
+		color: red;
+		height: 100%;
+	}
+}

@@ -1,0 +1,38 @@
+@import '/src/scss/ui/input.scss';
+@import '/src/scss/ui/button.scss';
+@import '/src/scss/constants';
+
+.iap-signup {
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	&__submit-button {
+		@extend %base-button;
+	}
+}
+
+.iap-input-field {
+	@extend %base-input-field;
+
+	&__label {
+		@extend %base-input-field__label;
+	}
+
+	&__input {
+		@extend %base-input-field__input;
+		font-size: calc($text-size * 4 / 3);
+		resize: none;
+	}
+
+	&__errors {
+		color: red;
+		margin-top: 5px;
+
+		h4 {
+			margin: 0;
+		}
+	}
+}

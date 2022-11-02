@@ -1,0 +1,12 @@
+<div class="iap-signup-page">
+	<div
+		*ngIf="errorStatus"
+		class="iap-signup-page__error"
+	>
+		{{ errorStatus }}
+	</div>
+	<iap-signup-form
+		class="iap-signup-page__form"
+		(submitEvent)="onSubmit($event)"
+	></iap-signup-form>
+</div>

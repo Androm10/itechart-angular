@@ -1,0 +1,24 @@
+@import '/src/scss/constants';
+
+.iap-signup-page {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 10px 15vw;
+
+	&__error {
+		width: max(40%, 200px);
+		color: #fff;
+		padding: 6px;
+		background-color: black;
+		outline: 1px solid red;
+		font-size: $text-size;
+		text-transform: capitalize;
+	}
+
+	&__form {
+		width: max(40%, 200px);
+		white-space: nowrap;
+	}
+}

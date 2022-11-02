@@ -1,0 +1,23 @@
+@import '../constants.scss';
+
+//TODO: use regular classes maybe
+%base-button {
+	font-size: $header-size;
+	padding: 8px 12px;
+	background-color: #377aff;
+	color: #fff;
+	border-radius: 0.2em;
+	border: 0.2em solid #377aff;
+	transition: all 0.2s ease;
+
+	&:hover:enabled {
+		cursor: pointer;
+		color: #000;
+		background-color: #fff;
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+}

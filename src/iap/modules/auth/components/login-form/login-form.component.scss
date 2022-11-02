@@ -1,0 +1,54 @@
+@import '/src/scss/ui/input.scss';
+@import '/src/scss/ui/button.scss';
+@import '/src/scss/constants';
+
+.iap-login {
+	display: flex;
+	width: 100%;
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+		width: 100%;
+	}
+
+	&__remember {
+		width: 100%;
+	}
+
+	&__submit-button {
+		@extend %base-button;
+		width: 180px;
+	}
+
+	&__error {
+		height: 20px;
+		width: 100%;
+		text-align: center;
+	}
+
+	&__help {
+		text-decoration: underline;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.iap-input-field {
+	@extend %base-input-field;
+	width: 100%;
+
+	&__label {
+		@extend %base-input-field__label;
+		text-transform: uppercase;
+	}
+
+	&__input {
+		@extend %base-input-field__input;
+		font-size: calc($text-size * 4 / 3);
+	}
+}

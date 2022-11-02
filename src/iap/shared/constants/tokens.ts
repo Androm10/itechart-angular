@@ -1,0 +1,2 @@
+export const AUTH_SERVICE = 'IAP_AUTH_SERVICE';
+export const USER_SERVICE = 'IAP_USER_SERVICE';

@@ -1,0 +1,41 @@
+<div class="iap-login">
+	<form
+		class="iap-login__form"
+		[formGroup]="loginForm"
+		(ngSubmit)="onSubmit()"
+	>
+		<section class="iap-input-field">
+			<label class="iap-input-field__label">Login</label>
+			<input
+				class="iap-input-field__input"
+				formControlName="login"
+			/>
+		</section>
+
+		<section class="iap-input-field">
+			<label class="iap-input-field__label">Password</label>
+			<input
+				type="password"
+				class="iap-input-field__input"
+				formControlName="password"
+			/>
+		</section>
+
+		<!-- TODO: add "remember me" implementation-->
+		<section class="iap-login__remember">
+			<input type="checkbox" />
+			Remember me
+		</section>
+
+		<input
+			type="submit"
+			value="Login"
+			class="iap-login__submit-button"
+		/>
+		<div class="iap-login__error">
+			<ng-content> </ng-content>
+		</div>
+
+		<label class="iap-login__help">Help, i can't login into my account</label>
+	</form>
+</div>

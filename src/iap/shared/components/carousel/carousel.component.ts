@@ -18,6 +18,8 @@ export class CarouselComponent implements AfterViewInit, OnDestroy {
 
 	interval: number | undefined;
 
+	slideshowIntervalTime = 5000;
+
 	// TODO: ngOnChanges  (and ngAfterInit)
 	ngAfterViewInit(): void {
 		// TODO: Fix "changes after check" error by another method
@@ -62,7 +64,7 @@ export class CarouselComponent implements AfterViewInit, OnDestroy {
 	private startSlideshow() {
 		this.interval = window.setInterval(() => {
 			this.selectSlide(this.currentSlideIndex + 1);
-		}, 5000);
+		}, this.slideshowIntervalTime);
 	}
 
 	private restartSlideshowTimer() {

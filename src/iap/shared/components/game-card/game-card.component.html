@@ -3,15 +3,15 @@
 	<div class="iap-card__info">
 		<div class="iap-card__availability">Available today!</div>
 
-		<div class="price-info">
-			<div class="price-info__discount">
+		<div class="iap-price-info">
+			<div class="iap-price-info__discount">
 				<!-- TODO: Add pipe for discount and price -->
 				<span>- {{ game.discount * 100 }} %</span>
 			</div>
-			<div class="price-info__price">
-				<small class="price-info__oldprice">${{ game.price }}</small
+			<div class="iap-price-info__price">
+				<small class="iap-price-info__oldprice">${{ game.price }}</small
 				><br />
-				<span class="price-info__newprice">${{ game.price * game.discount }} USD</span>
+				<span class="iap-price-info__newprice">${{ game.price * game.discount }} USD</span>
 			</div>
 		</div>
 	</div>

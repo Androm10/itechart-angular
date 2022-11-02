@@ -1,16 +1,16 @@
-<div class="slide">
-	<div class="slide__avatar"></div>
+<div class="iap-slide">
+	<div class="iap-slide__avatar"></div>
 
-	<div class="slide__information">
-		<h1 class="slide__title">{{ data.name }}</h1>
-		<div class="slide__screenshot-grid">
-			<div class="slide__screenshot"></div>
-			<div class="slide__screenshot"></div>
-			<div class="slide__screenshot"></div>
-			<div class="slide__screenshot"></div>
+	<div class="iap-slide__information">
+		<h1 class="iap-slide__title">{{ data.name }}</h1>
+		<div class="iap-slide__screenshot-grid">
+			<div class="iap-slide__screenshot"></div>
+			<div class="iap-slide__screenshot"></div>
+			<div class="iap-slide__screenshot"></div>
+			<div class="iap-slide__screenshot"></div>
 		</div>
-		<p class="slide__description">{{ data.description }}</p>
-		<div class="slide__price">
+		<p class="iap-slide__description">{{ data.description }}</p>
+		<div class="iap-slide__price">
 			<label>
 				{{ data.price || 'free' }}
 				<ng-container *ngIf="data.price">$</ng-container>

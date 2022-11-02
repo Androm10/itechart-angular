@@ -1,22 +1,20 @@
 @import '/src/scss/constants.scss';
 @import '/src/scss/mixins.scss';
 
-.dropdown {
-	position: absolute;
-	list-style: none;
-	padding: 5px 8px;
-	z-index: 5;
-	background: linear-gradient($base-color, $second-color);
-	box-shadow: 3px 3px 10px black;
-	margin: 0;
+.iap-dropdown {
+	&__items {
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.2s ease, visibility 0s;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		z-index: 5;
 
-	&__item {
-		line-height: 25px;
-		min-width: 50px;
-	}
-
-	&__item:hover {
-		text-shadow: 2px 2px 5px black;
-		cursor: pointer;
+		&_active {
+			visibility: visible;
+			opacity: 1;
+		}
 	}
 }

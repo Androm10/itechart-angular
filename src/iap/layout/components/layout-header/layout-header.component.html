@@ -1,0 +1,58 @@
+<div class="iap-header">
+	<div class="iap-header__logo"></div>
+	<nav class="iap-header__nav">
+		<iap-dropdown>
+			<label
+				title
+				class="iap-header__link"
+				[routerLink]="shopPages[0].absolutePath"
+				routerLinkActive="active"
+				>Shop</label
+			>
+			<div class="iap-header__menu">
+				<iap-dropdown-item
+					class="iap-header__link"
+					*ngFor="let page of shopPages"
+					[label]="page.title"
+					(click)="onSelectOption(page.absolutePath)"
+				></iap-dropdown-item>
+			</div>
+		</iap-dropdown>
+		<iap-dropdown>
+			<label
+				title
+				class="iap-header__link"
+				[routerLink]="communityPages[0].absolutePath"
+				routerLinkActive="active"
+				>Community</label
+			>
+			<div class="iap-header__menu">
+				<iap-dropdown-item
+					class="iap-header__link"
+					*ngFor="let page of communityPages"
+					[label]="page.title"
+					(click)="onSelectOption(page.absolutePath)"
+				></iap-dropdown-item>
+			</div>
+		</iap-dropdown>
+		<a
+			class="iap-header__link"
+			[routerLink]="shopPages[0].absolutePath"
+			routerLinkActive="active"
+			>About us</a
+		>
+		<a
+			class="iap-header__link"
+			[routerLink]="shopPages[0].absolutePath"
+			routerLinkActive="active"
+			>Support</a
+		>
+	</nav>
+	<div class="iap-header__global-actions">
+		<a
+			[routerLink]="shopPages[0].absolutePath"
+			routerLinkActive="active"
+			>sign up</a
+		>
+	</div>
+</div>

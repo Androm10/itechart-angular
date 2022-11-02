@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 import { DropdownOption } from '@shared/models/dropdown.models';
 
@@ -13,6 +13,18 @@ export class DropdownComponent {
 
 	@Output()
 	selectEvent: EventEmitter<string> = new EventEmitter<string>();
+
+	isMouseOver = false;
+
+	@HostListener('mouseover')
+	onMouseOver() {
+		this.isMouseOver = true;
+	}
+
+	@HostListener('mouseout')
+	onMouseOut() {
+		this.isMouseOver = false;
+	}
 
 	selectOption(value: string) {
 		this.selectEvent.emit(value);

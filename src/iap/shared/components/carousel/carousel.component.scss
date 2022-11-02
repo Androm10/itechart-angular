@@ -38,26 +38,27 @@ $iap-button-margin: 50px;
 
 	&__prev-button {
 		left: -$iap-button-margin;
+	}
 
-		&-label {
-			padding: 20px 5px;
-			background: linear-gradient(90deg, $base-color, $second-color);
-		}
-		//TODO: Pick another color instead of gray
-		&-label:hover {
+	&__prev-button-label {
+		padding: 20px 5px;
+		background: linear-gradient(90deg, $base-color, $second-color);
+
+		&:hover {
+			//TODO: Pick another color instead of gray
 			background: linear-gradient(90deg, gray, $second-color);
 		}
 	}
 
 	&__next-button {
 		right: -$iap-button-margin;
+	}
 
-		&-label {
-			padding: 20px 5px;
-			background: linear-gradient(-90deg, $base-color, $second-color);
-		}
+	&__next-button-label {
+		padding: 20px 5px;
+		background: linear-gradient(-90deg, $base-color, $second-color);
 
-		&-label:hover {
+		&:hover {
 			background: linear-gradient(-90deg, gray, $second-color);
 		}
 	}

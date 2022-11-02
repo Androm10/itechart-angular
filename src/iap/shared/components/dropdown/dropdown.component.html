@@ -1,9 +1,12 @@
-<ul class="dropdown">
-	<li
-		class="dropdown__item"
-		*ngFor="let value of values"
-		(click)="selectOption(value.value)"
+<div class="iap-dropdown">
+	<div class="iap-dropdown__title">
+		<ng-content select="[title]"></ng-content>
+	</div>
+
+	<ul
+		class="iap-dropdown__items"
+		[class.iap-dropdown__items_active]="isMouseOver"
 	>
-		{{ value.label }}
-	</li>
-</ul>
+		<ng-content></ng-content>
+	</ul>
+</div>

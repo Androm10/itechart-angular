@@ -1,0 +1,17 @@
+<div class="iap-game-card">
+	<div class="iap-game-card__avatar"></div>
+	<div class="iap-game-card__info">
+		<div class="iap-game-card__availability">Available today!</div>
+
+		<div class="iap-game-card__price-info">
+			<div class="iap-game-card__discount">
+				<!-- TODO: Add pipe for discount and price -->
+				<span>- {{ game.discount * 100 }} %</span>
+			</div>
+			<div class="iap-game-card__price">
+				<small class="iap-game-card__oldprice">${{ game.price }}</small> <br />
+				<span class="iap-game-card__newprice">${{ game.price * game.discount }} USD</span>
+			</div>
+		</div>
+	</div>
+</div>

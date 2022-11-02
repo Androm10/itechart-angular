@@ -3,7 +3,7 @@
 
 //TODO: make hamburger menu
 
-.header {
+.iap-layout-header {
 	font-size: $header-size;
 	font-weight: 600;
 	background: linear-gradient($base-color, $second-color);
@@ -29,6 +29,7 @@
 	&__link:hover,
 	a:hover {
 		color: $nav-link-active-color;
+		cursor: pointer;
 	}
 
 	&__logo {
@@ -43,14 +44,12 @@
 		white-space: nowrap;
 	}
 
-	&__dropdown {
-		visibility: hidden;
-		opacity: 0;
-		transition: opacity 0.2s ease, visibility 0s;
-
-		&_active {
-			visibility: visible;
-			opacity: 1;
-		}
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		border-radius: 0.5rem;
+		padding: 10px;
+		background: linear-gradient($base-color, $second-color);
 	}
 }

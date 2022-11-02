@@ -2,11 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { DropdownComponent } from './components';
+import {
+	DropdownComponent,
+	CarouselComponent,
+	GameCardComponent,
+	PreviewSlideComponent,
+	DropdownItemComponent,
+} from './components';
 
 @NgModule({
-	declarations: [DropdownComponent],
+	declarations: [DropdownComponent, DropdownItemComponent, CarouselComponent, GameCardComponent, PreviewSlideComponent],
 	imports: [CommonModule, RouterModule],
-	exports: [CommonModule, DropdownComponent],
+	exports: [DropdownComponent, DropdownItemComponent, CarouselComponent, GameCardComponent, PreviewSlideComponent],
 })
 export class SharedModule {}

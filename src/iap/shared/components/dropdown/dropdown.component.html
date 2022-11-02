@@ -1,9 +1,9 @@
-<ul class="dropdown">
-	<li
-		class="dropdown__item"
-		*ngFor="let value of values"
-		(click)="selectOption(value.value)"
-	>
-		{{ value.label }}
-	</li>
-</ul>
+<div class="iap-dropdown">
+	<div class="iap-dropdown__title">
+		<ng-content select="[title]"></ng-content>
+	</div>
+
+	<ul class="iap-dropdown__items">
+		<ng-content></ng-content>
+	</ul>
+</div>

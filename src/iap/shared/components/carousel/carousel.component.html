@@ -1,0 +1,28 @@
+<div class="iap-carousel">
+	<div class="iap-carousel__slide-container">
+		<ng-template #slideHost></ng-template>
+	</div>
+
+	<div
+		class="iap-carousel__prev-button"
+		(click)="onPrevButtonClick()"
+	>
+		<span class="iap-carousel__prev-button-label">&#60;</span>
+	</div>
+
+	<div
+		class="iap-carousel__next-button"
+		(click)="onNextButtonClick()"
+	>
+		<span class="iap-carousel__next-button-label">&#62;</span>
+	</div>
+
+	<ul class="iap-carousel__pages">
+		<li
+			*ngFor="let slide of slides; let i = index"
+			class="iap-carousel__pages-button"
+			[class.iap-carousel__pages-button_selected]="isCurrentSlideIndex(i)"
+			(click)="selectSlide(i)"
+		></li>
+	</ul>
+</div>

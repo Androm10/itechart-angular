@@ -1,0 +1,20 @@
+<div class="iap-preview-slide">
+	<div class="iap-preview-slide__avatar"></div>
+
+	<div class="iap-preview-slide__information">
+		<h1 class="iap-preview-slide__title">{{ data.name }}</h1>
+		<div class="iap-preview-slide__screenshot-grid">
+			<div class="iap-preview-slide__screenshot"></div>
+			<div class="iap-preview-slide__screenshot"></div>
+			<div class="iap-preview-slide__screenshot"></div>
+			<div class="iap-preview-slide__screenshot"></div>
+		</div>
+		<p class="iap-preview-slide__description">{{ data.description }}</p>
+		<div class="iap-preview-slide__price">
+			<label>
+				{{ data.price || 'free' }}
+				<ng-container *ngIf="data.price">$</ng-container>
+			</label>
+		</div>
+	</div>
+</div>

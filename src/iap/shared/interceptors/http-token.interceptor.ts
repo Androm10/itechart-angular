@@ -7,12 +7,8 @@ import { ID_TOKEN } from '@shared/constants/auth';
 @Injectable()
 export class HttpTokenInterceptor implements HttpInterceptor {
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		const headers: any = {
-			Accept: 'application/json',
-		};
-
+		const headers: any = {};
 		const token = localStorage.getItem(ID_TOKEN);
-		console.log(token || 'нету токена');
 		if (token) {
 			headers['Authorization'] = `Bearer ${token}`;
 		}

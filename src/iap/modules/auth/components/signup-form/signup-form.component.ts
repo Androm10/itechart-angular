@@ -1,9 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { SignupForm } from '@shared/models/auth.models';
+import { ApiResponse } from '@shared/models/auth.models';
+import { IapError } from '@shared/models/types/iap-error.type';
+import { IapSyncValidators } from '@shared/validators/iap-sync-validators.validator';
 import { IsLoginUniqueValidator } from '@shared/validators/is-login-unique.validator';
-import { matchPassword } from '@shared/validators/match-password.validator';
+import { AuthFormsApiService } from '../../services/auth-forms-api.service';
 
 @Component({
 	selector: 'iap-signup-form',
@@ -11,11 +13,15 @@ import { matchPassword } from '@shared/validators/match-password.validator';
 	styleUrls: ['./signup-form.component.scss'],
 })
 export class SignupFormComponent implements OnInit {
-	@Output() submitEvent: EventEmitter<SignupForm> = new EventEmitter();
+	@Output() submitEvent: EventEmitter<ApiResponse> = new EventEmitter();
 
 	signupForm!: FormGroup;
 
-	constructor(private fb: FormBuilder, private isLoginUnique: IsLoginUniqueValidator) {}
+	constructor(
+		private fb: FormBuilder,
+		private isLoginUnique: IsLoginUniqueValidator,
+		private authFormsApiService: AuthFormsApiService,
+	) {}
 
 	ngOnInit() {
 		this.signupForm = this.fb.group(
@@ -28,34 +34,31 @@ export class SignupFormComponent implements OnInit {
 				passwordConfirmation: ['', [Validators.required]],
 			},
 			{
-				validators: matchPassword('password', 'passwordConfirmation'),
+				validators: IapSyncValidators.matchPassword('password', 'passwordConfirmation'),
 			},
 		);
 	}
 
 	onSubmit() {
 		if (this.signupForm.valid) {
-			this.submitEvent.emit(this.signupForm.value);
+			this.authFormsApiService.signup(this.signupForm.value).subscribe({
+				next: this.onSubmitSuccess,
+				error: this.onSubmitError,
+			});
 		}
 	}
 
-	isControlInvalid(controlName: string) {
-		const control = this.signupForm.controls?.[controlName];
-
-		if (!control) {
-			return null;
-		}
-
-		return control.invalid && (control.touched || control.dirty);
+	private onSubmitError(error: IapError) {
+		this.submitEvent.emit({
+			success: true,
+			message: error?.message,
+		});
 	}
 
-	hasErrors(controlName: string, errorName: string) {
-		const control = this.signupForm.controls?.[controlName];
-
-		if (!control) {
-			return null;
-		}
-
-		return !!control.errors?.[errorName];
+	private onSubmitSuccess() {
+		this.submitEvent.emit({
+			success: true,
+			message: 'Successfully registered',
+		});
 	}
 }

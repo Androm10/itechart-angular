@@ -5,12 +5,11 @@ import * as dayjs from 'dayjs';
 import { EXPIRES_AT, ID_TOKEN } from '@shared/constants/auth';
 import { JwtSession } from '@shared/models/dto/jwt-session.dto';
 import { User } from '@shared/models/entities/user.entity';
-import { IAuthService } from '@shared/interfaces/auth-service.interface';
-import { ApiService } from '@shared/modules/api/services/api.service';
+import { ApiService } from '@shared/services/api.service';
 
 // TODO: add refresh token to this strategy
 @Injectable({ providedIn: 'root' })
-export class JwtAuthService implements IAuthService {
+export class JwtAuthService {
 	constructor(private api: ApiService) {}
 
 	login(login: string, password: string): Observable<JwtSession> {

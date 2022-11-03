@@ -1,6 +1,6 @@
-<div class="iap-login">
+<div class="iap-login-form">
 	<form
-		class="iap-login__form"
+		class="iap-login-form__form"
 		[formGroup]="loginForm"
 		(ngSubmit)="onSubmit()"
 	>
@@ -22,7 +22,7 @@
 		</section>
 
 		<!-- TODO: add "remember me" implementation-->
-		<section class="iap-login__remember">
+		<section class="iap-login-form__remember">
 			<input type="checkbox" />
 			Remember me
 		</section>
@@ -30,12 +30,12 @@
 		<input
 			type="submit"
 			value="Login"
-			class="iap-login__submit-button"
+			class="iap-login-form__submit-button"
 		/>
-		<div class="iap-login__error">
+		<div class="iap-login-form__error">
 			<ng-content> </ng-content>
 		</div>
 
-		<label class="iap-login__help">Help, i can't login into my account</label>
+		<label class="iap-login-form__help">Help, i can't login into my account</label>
 	</form>
 </div>

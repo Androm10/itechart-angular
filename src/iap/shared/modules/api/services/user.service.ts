@@ -4,11 +4,10 @@ import { Observable, map } from 'rxjs';
 import { User } from '@shared/models/entities/user.entity';
 import { Profile } from '@shared/models/entities/profile.entity';
 import { UpdateProfileDto } from '@shared/models/dto/update-profile.dto';
-import { IUserService } from '@shared/interfaces/user-service.interface';
-import { ApiService } from './api.service';
+import { ApiService } from '@shared/services/api.service';
 
 @Injectable()
-export class UserService implements IUserService {
+export class UserService {
 	constructor(private api: ApiService) {}
 
 	get(id: number): Observable<User> {

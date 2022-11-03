@@ -1,11 +1,11 @@
-<div class="iap-signup">
-	<h1 class="iap-signup__header">Account creation</h1>
+<div class="iap-signup-form">
+	<h1 class="iap-signup-form__header">Account creation</h1>
 	<form
-		class="iap-signup__form"
+		class="iap-signup-form__form"
 		[formGroup]="signupForm"
 		(ngSubmit)="onSubmit()"
 	>
-		<section class="iap-signup__login iap-input-field">
+		<section class="iap-signup-form__login iap-input-field">
 			<label class="iap-input-field__label">Email address</label>
 			<input
 				class="iap-input-field__input"
@@ -13,15 +13,15 @@
 			/>
 			<div
 				class="iap-input-field__errors"
-				*ngIf="isControlInvalid('login')"
+				*ngIf="signupForm | isControlInvalidErrors: 'login'"
 			>
-				<h4 *ngIf="hasErrors('login', 'required')">Field is required!</h4>
-				<h4 *ngIf="hasErrors('login', 'email')">Must be an email!</h4>
-				<h4 *ngIf="hasErrors('login', 'hasTaken')">Already taken!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'login':'required'">Field is required!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'login':'email'">Must be an email!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'login':'hasTaken'">Already taken!</h4>
 			</div>
 		</section>
 
-		<section class="iap-signup__username iap-input-field">
+		<section class="iap-signup-form__username iap-input-field">
 			<label class="iap-input-field__label">Username</label>
 			<input
 				class="iap-input-field__input"
@@ -29,15 +29,15 @@
 			/>
 			<div
 				class="iap-input-field__errors"
-				*ngIf="isControlInvalid('username')"
+				*ngIf="signupForm | isControlInvalidErrors: 'username'"
 			>
-				<h4 *ngIf="hasErrors('username', 'required')">Field is required!</h4>
-				<h4 *ngIf="hasErrors('username', 'minlength')">Length is too small!</h4>
-				<h4 *ngIf="hasErrors('username', 'maxlength')">Length is too big!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'username':'required'">Field is required!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'username':'minlength'">Length is too small!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'username':'maxlength'">Length is too big!</h4>
 			</div>
 		</section>
 
-		<section class="iap-signup__birth-date iap-input-field">
+		<section class="iap-signup-form__birth-date iap-input-field">
 			<label class="iap-input-field__label">Date of birth</label>
 			<input
 				type="date"
@@ -46,7 +46,7 @@
 			/>
 		</section>
 
-		<section class="iap-signup__description iap-input-field">
+		<section class="iap-signup-form__description iap-input-field">
 			<label class="iap-input-field__label">About you</label>
 			<textarea
 				class="iap-input-field__input"
@@ -55,7 +55,7 @@
 			></textarea>
 		</section>
 
-		<section class="iap-signup__password iap-input-field">
+		<section class="iap-signup-form__password iap-input-field">
 			<label class="iap-input-field__label">Password</label>
 			<input
 				type="password"
@@ -64,15 +64,15 @@
 			/>
 			<div
 				class="iap-input-field__errors"
-				*ngIf="isControlInvalid('password')"
+				*ngIf="signupForm | isControlInvalidErrors: 'password'"
 			>
-				<h4 *ngIf="hasErrors('password', 'required')">Field is required!</h4>
-				<h4 *ngIf="hasErrors('password', 'minlength')">Length is too small!</h4>
-				<h4 *ngIf="hasErrors('password', 'maxlength')">Length is too big!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'password':'required'">Field is required!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'password':'minlength'">Length is too small!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'username':'maxlength'">Length is too big!</h4>
 			</div>
 		</section>
 
-		<section class="iap-signup__password-confirmation iap-input-field">
+		<section class="iap-signup-form__password-confirmation iap-input-field">
 			<label class="iap-input-field__label">Password confirmation</label>
 			<input
 				type="password"
@@ -81,16 +81,19 @@
 			/>
 			<div
 				class="iap-input-field__errors"
-				*ngIf="isControlInvalid('passwordConfirmation')"
+				*ngIf="signupForm | isControlInvalidErrors: 'passwordConfirmation'"
 			>
-				<h4 *ngIf="hasErrors('passwordConfirmation', 'required')">Field is required!</h4>
-				<h4 *ngIf="hasErrors('passwordConfirmation', 'passwordMismatch')">Does not match with password!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'passwordConfirmation':'required'">Field is required!</h4>
+				<h4 *ngIf="signupForm | isControlHasErrors: 'passwordConfirmation':'passwordMismatch'">Does not match with password!</h4>
 			</div>
 		</section>
 
+		<div class="iap-signup-form__error">
+			<ng-content> </ng-content>
+		</div>
 		<input
 			type="submit"
-			class="iap-signup__submit-button"
+			class="iap-signup-form__submit-button"
 			value="Sign Up"
 			[disabled]="signupForm.invalid"
 		/>

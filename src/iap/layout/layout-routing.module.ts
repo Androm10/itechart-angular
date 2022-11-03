@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { authPages, devPages, shopPages } from '@shared/constants/pages';
@@ -8,6 +8,17 @@ import { PointsShopPageComponent } from '../modules/shop/points-shop/components/
 import { DevPageComponent } from '../modules/dev/components/dev-page/dev-page.component';
 import { SignupPageComponent } from '../modules/auth/components/signup-page/signup-page.component';
 import { LoginPageComponent } from '../modules/auth/components/login-page/login-page.component';
+
+let devRoutes: Routes = [];
+
+if (isDevMode()) {
+	devRoutes = [
+		{
+			path: devPages.dev.name,
+			component: DevPageComponent,
+		},
+	];
+}
 
 const routes: Routes = [
 	{
@@ -30,10 +41,7 @@ const routes: Routes = [
 				path: authPages.login.name,
 				component: LoginPageComponent,
 			},
-			{
-				path: devPages.dev.name,
-				component: DevPageComponent,
-			},
+			...devRoutes,
 		],
 	},
 ];

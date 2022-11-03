@@ -1,27 +1,35 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { ApiModule } from './modules/api/api.module';
-import { ConfigService } from './services/config.service';
+import { IsControlInvalidPipe } from './pipes/is-control-invalid.pipe';
+import { IsControlHasErrorsPipe } from './pipes/is-control-has-errors.pipe';
 import { DropdownComponent, CarouselComponent, GameCardComponent, PreviewSlideComponent } from './components';
 import { IsLoginUniqueValidator } from './validators/is-login-unique.validator';
+import { ApiService } from './services/api.service';
+import { EnvironmentService } from './services/environment.service';
+import { JwtAuthService } from './services/jwt-auth.service';
 
 @NgModule({
-	declarations: [DropdownComponent, CarouselComponent, GameCardComponent, PreviewSlideComponent],
-	imports: [CommonModule, RouterModule, ApiModule],
-	providers: [
-		ConfigService,
-		{
-			provide: APP_INITIALIZER,
-			useFactory: (config: ConfigService) => {
-				return () => config.load();
-			},
-			deps: [ConfigService],
-			multi: true,
-		},
-		IsLoginUniqueValidator,
+	declarations: [
+		DropdownComponent,
+		CarouselComponent,
+		GameCardComponent,
+		PreviewSlideComponent,
+		IsControlInvalidPipe,
+		IsControlHasErrorsPipe,
 	],
-	exports: [CommonModule, DropdownComponent, CarouselComponent, GameCardComponent, PreviewSlideComponent],
+	imports: [CommonModule, RouterModule, ApiModule],
+	providers: [ApiService, EnvironmentService, JwtAuthService, IsLoginUniqueValidator],
+	exports: [
+		CommonModule,
+		DropdownComponent,
+		CarouselComponent,
+		GameCardComponent,
+		PreviewSlideComponent,
+		IsControlInvalidPipe,
+		IsControlHasErrorsPipe,
+	],
 })
 export class SharedModule {}

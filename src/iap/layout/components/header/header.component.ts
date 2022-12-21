@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { DropdownOption } from '@shared/models/dropdown.models';
 import { communityPagesArray, devPagesArray, shopPagesArray } from '@shared/constants/pages';
+import { DropdownOption } from '@shared/models/dropdown.models';
 
 @Component({
 	selector: 'iap-layout-header',

@@ -13,11 +13,11 @@
 			/>
 			<div
 				class="iap-input-field__errors"
-				*ngIf="signupForm | isControlInvalidErrors: 'login'"
+				*ngIf="signupForm.controls['login'] | isControlInvalid"
 			>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'login':'required'">Field is required!</h4>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'login':'email'">Must be an email!</h4>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'login':'hasTaken'">Already taken!</h4>
+				<h4 *ngIf="signupForm.controls['login'].errors?.['login']">Field is required!</h4>
+				<h4 *ngIf="signupForm.controls['login'].errors?.['email']">Must be an email!</h4>
+				<h4 *ngIf="signupForm.controls['login'].errors?.['isLoginUnique']">Already taken!</h4>
 			</div>
 		</section>
 
@@ -29,11 +29,11 @@
 			/>
 			<div
 				class="iap-input-field__errors"
-				*ngIf="signupForm | isControlInvalidErrors: 'username'"
+				*ngIf="signupForm.controls['username'] | isControlInvalid"
 			>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'username':'required'">Field is required!</h4>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'username':'minlength'">Length is too small!</h4>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'username':'maxlength'">Length is too big!</h4>
+				<h4 *ngIf="signupForm.controls['username'].errors?.['required']">Field is required!</h4>
+				<h4 *ngIf="signupForm.controls['username'].errors?.['minlength']">Length is too small!</h4>
+				<h4 *ngIf="signupForm.controls['username'].errors?.['maxlength']">Length is too big!</h4>
 			</div>
 		</section>
 
@@ -64,11 +64,11 @@
 			/>
 			<div
 				class="iap-input-field__errors"
-				*ngIf="signupForm | isControlInvalidErrors: 'password'"
+				*ngIf="signupForm.controls['password'] | isControlInvalid"
 			>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'password':'required'">Field is required!</h4>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'password':'minlength'">Length is too small!</h4>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'username':'maxlength'">Length is too big!</h4>
+				<h4 *ngIf="signupForm.controls['password'].errors?.['required']">Field is required!</h4>
+				<h4 *ngIf="signupForm.controls['password'].errors?.['minlength']">Length is too small!</h4>
+				<h4 *ngIf="signupForm.controls['password'].errors?.['maxlength']">Length is too big!</h4>
 			</div>
 		</section>
 
@@ -81,10 +81,10 @@
 			/>
 			<div
 				class="iap-input-field__errors"
-				*ngIf="signupForm | isControlInvalidErrors: 'passwordConfirmation'"
+				*ngIf="signupForm.controls['passwordConfirmation'] | isControlInvalid"
 			>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'passwordConfirmation':'required'">Field is required!</h4>
-				<h4 *ngIf="signupForm | isControlHasErrors: 'passwordConfirmation':'passwordMismatch'">Does not match with password!</h4>
+				<h4 *ngIf="signupForm.controls['passwordConfirmation'].errors?.['required']">Field is required!</h4>
+				<h4 *ngIf="signupForm.controls['passwordConfirmation'].errors?.['matchControls']">Does not match with password!</h4>
 			</div>
 		</section>
 
@@ -95,7 +95,7 @@
 			type="submit"
 			class="iap-signup-form__submit-button"
 			value="Sign Up"
-			[disabled]="signupForm.invalid"
+			[disabled]="signupForm | isControlInvalid"
 		/>
 	</form>
 </div>

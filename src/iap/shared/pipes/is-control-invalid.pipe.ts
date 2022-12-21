@@ -1,18 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Pipe({
-	name: 'isControlInvalidErrors',
+	name: 'isControlInvalid',
 	pure: false,
 })
 export class IsControlInvalidPipe implements PipeTransform {
-	transform(formGroup: FormGroup, controlName: string) {
-		const control = formGroup.controls?.[controlName];
-
-		if (!control) {
-			return null;
-		}
-
+	transform(control: AbstractControl) {
 		return control.invalid && (control.touched || control.dirty);
 	}
 }

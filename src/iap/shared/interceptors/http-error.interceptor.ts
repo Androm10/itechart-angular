@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
+
+import { Observable, catchError, throwError } from 'rxjs';
 
 import { IapError } from '@shared/models/types/iap-error.type';
 
@@ -10,7 +11,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 		return next.handle(req).pipe(
 			catchError((error: HttpErrorResponse) => {
 				return throwError(() => {
-					let iapError;
+					let iapError: IapError;
 					// TODO: make factory for IapError
 					if (error instanceof Error) {
 						iapError = new IapError(error.status.toString(), 'Unknown error');

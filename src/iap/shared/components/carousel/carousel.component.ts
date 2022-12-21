@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, AfterViewInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core';
 
 import { Slide, SlideComponent } from '@shared/models/carousel.models';
 

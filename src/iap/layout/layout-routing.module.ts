@@ -1,17 +1,18 @@
-import { isDevMode, NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { authPages, devPages, shopPages } from '@shared/constants/pages';
-import { LayoutComponent } from './components/layout/layout.component';
+import { environment } from 'src/environments/environment';
+import { LoginPageComponent } from '../modules/auth/components/login-page/login-page.component';
+import { SignupPageComponent } from '../modules/auth/components/signup-page/signup-page.component';
+import { DevPageComponent } from '../modules/dev/components/dev-page/dev-page.component';
 import { HomePageComponent } from '../modules/shop/home/components/home-page/home-page.component';
 import { PointsShopPageComponent } from '../modules/shop/points-shop/components/pointsshop-page/pointsshop-page.component';
-import { DevPageComponent } from '../modules/dev/components/dev-page/dev-page.component';
-import { SignupPageComponent } from '../modules/auth/components/signup-page/signup-page.component';
-import { LoginPageComponent } from '../modules/auth/components/login-page/login-page.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 let devRoutes: Routes = [];
 
-if (isDevMode()) {
+if (!environment.production) {
 	devRoutes = [
 		{
 			path: devPages.dev.name,

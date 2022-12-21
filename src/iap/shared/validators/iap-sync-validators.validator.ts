@@ -1,21 +1,22 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export class IapSyncValidators {
-	static matchPassword(password: string, passwordConfirmation: string): ValidatorFn {
+	static matchControls(controlName1: string, controlName2: string): ValidatorFn {
 		return (control: AbstractControl): ValidationErrors | null => {
-			const passwordControl = control.get(password);
-			const passwordConfirmationControl = control.get(passwordConfirmation);
+			const control1 = control.get(controlName1);
+			const control2 = control.get(controlName2);
 
-			if (!passwordConfirmationControl || !passwordControl) {
+			if (!control2 || !control1) {
 				return null;
 			}
 
-			if (passwordControl.value !== passwordConfirmationControl.value) {
-				passwordConfirmationControl.setErrors({ passwordMismatch: true });
-				return { passwordMismatch: true };
+			if (control1.value !== control2.value) {
+				control2.setErrors({ matchControls: true });
+				return { matchControls: true };
 			}
 
-			passwordConfirmationControl.setErrors(null);
+			control2.setErrors(null);
+
 			return null;
 		};
 	}

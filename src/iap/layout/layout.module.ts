@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { SharedModule } from '@shared/shared.module';
-import { LayoutRoutingModule } from './layout-routing.module';
 import { ModulesModule } from '../modules/modules.module';
-import { LayoutComponent } from './components/layout/layout.component';
 import { LayoutHeaderComponent } from './components/header/header.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { LayoutRoutingModule } from './layout-routing.module';
 
 @NgModule({
 	declarations: [LayoutComponent, LayoutHeaderComponent],

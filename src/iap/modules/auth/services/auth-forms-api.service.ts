@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
+import { switchMap } from 'rxjs';
+
 import { LoginForm, SignupForm } from '@shared/models/auth.models';
 import { UserService } from '@shared/modules/api/services/user.service';
 import { JwtAuthService } from '@shared/services/jwt-auth.service';
-import { switchMap } from 'rxjs';
 
 @Injectable()
 export class AuthFormsApiService {

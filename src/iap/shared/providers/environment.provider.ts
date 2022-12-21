@@ -1,7 +1,7 @@
 import { Provider } from '@angular/core';
 
-import { ENVIRONMENT } from '@shared/constants/tokens';
 import { environment } from 'src/environments/environment';
+import { ENVIRONMENT } from '@shared/constants/tokens';
 
 export const environmentProviders: Provider[] = [
 	{

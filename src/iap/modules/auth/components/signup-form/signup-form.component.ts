@@ -34,18 +34,16 @@ export class SignupFormComponent implements OnInit {
 				passwordConfirmation: ['', [Validators.required]],
 			},
 			{
-				validators: IapSyncValidators.matchPassword('password', 'passwordConfirmation'),
+				validators: IapSyncValidators.matchControls('password', 'passwordConfirmation'),
 			},
 		);
 	}
 
 	onSubmit() {
-		if (this.signupForm.valid) {
-			this.authFormsApiService.signup(this.signupForm.value).subscribe({
-				next: this.onSubmitSuccess,
-				error: this.onSubmitError,
-			});
-		}
+		this.authFormsApiService.signup(this.signupForm.value).subscribe({
+			next: () => this.onSubmitSuccess(),
+			error: (e: IapError) => this.onSubmitError(e),
+		});
 	}
 
 	private onSubmitError(error: IapError) {

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, shareReplay, tap } from 'rxjs';
-import * as dayjs from 'dayjs';
 
+import * as dayjs from 'dayjs';
+import { Observable, map, shareReplay, tap } from 'rxjs';
+
+import { apiRoutesAuth } from '@shared/constants/api-routes';
 import { EXPIRES_AT, ID_TOKEN } from '@shared/constants/auth';
 import { JwtSession } from '@shared/models/dto/jwt-session.dto';
 import { User } from '@shared/models/entities/user.entity';
@@ -13,7 +15,7 @@ export class JwtAuthService {
 	constructor(private api: ApiService) {}
 
 	login(login: string, password: string): Observable<JwtSession> {
-		const url = 'auth/login';
+		const url = apiRoutesAuth.login;
 		return this.api.post(url, { login, password }).pipe(
 			tap((res: any) => this.setSession(res as JwtSession)),
 			shareReplay(),
@@ -21,7 +23,7 @@ export class JwtAuthService {
 	}
 
 	loginAdmin(login: string, password: string): Observable<JwtSession> {
-		const url = 'auth/login-admin';
+		const url = apiRoutesAuth.loginAdimn;
 		return this.api.post(url, { login, password }).pipe(
 			tap((res: any) => this.setSession(res as JwtSession)),
 			shareReplay(),
@@ -29,7 +31,7 @@ export class JwtAuthService {
 	}
 
 	signup(login: string, password: string, username: string, passwordConfirmation: string): Observable<User> {
-		const url = 'auth/signup';
+		const url = apiRoutesAuth.signup;
 		return this.api
 			.post(url, { login, password, passwordConfirmation, username })
 			.pipe(map((user: any) => new User(user.id, user.login)));
